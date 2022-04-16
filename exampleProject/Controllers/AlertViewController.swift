@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol completedMessage{
+    func sayCompleted(showCompleted:Bool) -> Void
+}
+
 class AlertViewController: UIViewController {
     
     @IBOutlet var containerView: UIView!
@@ -17,8 +21,13 @@ class AlertViewController: UIViewController {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var contextLabel: UILabel!
     
+    @IBOutlet var closeButton: UIButton!
+    
     static var titleMessage:String = ""
     static var textMessage:String = ""
+    static var rightCode:Bool = false
+    
+    var delegate: completedMessage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +39,16 @@ class AlertViewController: UIViewController {
         fillerTopView.backgroundColor = .clear
         fillerBttomView.backgroundColor = .clear
         contextView.cornerConfigure(cornerRadius: 5, borderColor: UIColor.clear.cgColor, borderWidth: 0)
+        contextView.backgroundColor = .white
     }
     
+    @IBAction func closeButtonActıon(_ sender: Any) {
+        if(AlertViewController.rightCode == true){
+            delegate?.sayCompleted(showCompleted: true)
+        }else{
+            delegate?.sayCompleted(showCompleted: false)
+        }
+        dismiss(animated: true, completion: nil)
+    }
 }
 
