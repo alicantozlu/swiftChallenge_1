@@ -42,8 +42,8 @@ class ViewController: UIViewController {
             alertVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
             alertVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
             
-            alertVC.titleMessage = ""
-            alertVC.textMessage = ""
+            AlertViewController.titleMessage = "Tebrikler"
+            AlertViewController.textMessage = "123,00 TL indiriminiz tanımlandı!"
             
             self.present(alertVC, animated: true, completion: nil)
         }else{
@@ -52,8 +52,8 @@ class ViewController: UIViewController {
             alertVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
             alertVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
             
-            alertVC.titleMessage = ""
-            alertVC.textMessage = ""
+            AlertViewController.titleMessage = "Girdiğiniz Kod Geçerli Değil!"
+            AlertViewController.textMessage = "Hediye kodunu hatalı girmiş olabilirsiniz veya kullandığınız kodun geçerlilik süresi dolmuş olabilir."
             
             self.present(alertVC, animated: true, completion: nil)
         }
